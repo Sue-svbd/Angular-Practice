@@ -1,0 +1,13 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  &_card {
+    width: 500px;
+    margin-bottom: 10px;
+    &-location {
+      display: inline;
+    }
+  }
+}
