@@ -1,12 +1,9 @@
 <div class="list" *ngIf="posts">
-  <mat-card
-    class="list_card"
-    *ngFor="let post of posts"
-    (click)="onSelect(post)"
-  >
-    <mat-card-title>{{ post.title }}</mat-card-title>
+  <mat-card class="list_card">
+    <a *ngFor="let post of posts" routerLink="/posts/{{ post.id }}">
+      <mat-card-title>{{ post.title }}</mat-card-title>
 
-    <mat-card-subtitle> {{ post.body }}</mat-card-subtitle>
+      <mat-card-subtitle> {{ post.body }}</mat-card-subtitle></a
+    >
   </mat-card>
 </div>
-<app-post-detail [post]="selectedPost"></app-post-detail>

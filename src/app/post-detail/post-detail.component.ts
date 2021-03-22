@@ -11,8 +11,17 @@ import { Service } from '../service';
   styleUrls: ['./post-detail.component.scss'],
 })
 export class PostDetailComponent implements OnInit {
-  @Input() post?: Post;
-  constructor(private httpService: Service) {}
+  post: any;
+  constructor(
+    private httpService: Service,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {}
+
+  getPost(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.httpService.getPost(id).subscribe((data) => (this.post = data));
+  }
 }
