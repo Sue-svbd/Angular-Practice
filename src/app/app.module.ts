@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { PostsComponent } from './posts/posts.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { PostCommentComponent } from './post-comment/post-comment.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     BrewerySearchComponent,
     PostsComponent,
     PostDetailComponent,
+    PostCommentComponent,
   ],
   imports: [
     BrowserModule,

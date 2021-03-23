@@ -1,9 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Post } from '../interfaces';
 import { Service } from '../service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post-detail',
@@ -11,17 +9,13 @@ import { Service } from '../service';
   styleUrls: ['./post-detail.component.scss'],
 })
 export class PostDetailComponent implements OnInit {
-  post: any;
-  constructor(
-    private httpService: Service,
-    private route: ActivatedRoute,
-    private location: Location
-  ) {}
+  @Input() post: Post;
+  constructor(private httpService: Service) {}
 
   ngOnInit(): void {}
 
-  getPost(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.httpService.getPost(id).subscribe((data) => (this.post = data));
+  save(): void {
+    this.httpService.updatePostTitle(this.post);
+    console.log('after', this.post.title);
   }
 }

@@ -1,1 +1,9 @@
-<p>post-detail works!</p>
+<div *ngIf="post">
+  <mat-card class="list_card">
+    <mat-card-title>{{ post.title }}</mat-card-title>
+    <input [(ngModel)]="post.title" placeholder="Post title" />
+    <button (click)="save()">Save changes</button>
+    <mat-card-subtitle> {{ post.body }}</mat-card-subtitle>
+  </mat-card>
+  <app-post-comment></app-post-comment>
+</div>
